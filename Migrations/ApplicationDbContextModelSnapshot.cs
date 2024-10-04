@@ -231,7 +231,7 @@ namespace HotelManagement.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("PricePerNight")
+                    b.Property<decimal?>("PricePerNight")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("UpdatedAt")
@@ -272,7 +272,7 @@ namespace HotelManagement.Migrations
                     b.Property<DateTime?>("HireDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("HotelId")
+                    b.Property<int?>("HotelId")
                         .HasColumnType("int");
 
                     b.Property<string>("LastName")
@@ -328,7 +328,7 @@ namespace HotelManagement.Migrations
                     b.HasOne("HotelManagement.Entities.User", "User")
                         .WithMany("Bookings")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Room");
@@ -370,9 +370,7 @@ namespace HotelManagement.Migrations
                 {
                     b.HasOne("HotelManagement.Entities.Hotel", "Hotel")
                         .WithMany("Users")
-                        .HasForeignKey("HotelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("HotelId");
 
                     b.Navigation("Hotel");
                 });

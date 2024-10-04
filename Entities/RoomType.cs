@@ -8,7 +8,7 @@ namespace HotelManagement.Entities
     {
         public string Name { get; set; }
         public string? Description { get; set; } = null;
-        public decimal PricePerNight { get; set; }
+        public decimal? PricePerNight { get; set; }
         public int Capacity { get; set; }
         [JsonIgnore]
         public virtual List<Room> Rooms { get; set; } = [];

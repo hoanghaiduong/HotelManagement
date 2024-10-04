@@ -1,11 +1,12 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
 namespace HotelManagement.Entities
 {
     public class User : BaseAuditEntity<int>
     {
-
+        public int? HotelId { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public string? Avatar { get; set; }
@@ -18,8 +19,9 @@ namespace HotelManagement.Entities
         public string Password { get; set; }
         public DateTime? HireDate { get; set; } = DateTime.Now;
         public decimal Salary { get; set; }
+
         [JsonIgnore]
-        public virtual Hotel Hotel { get; set; } = null!;
+        public virtual Hotel? Hotel { get; set; } = null!;
         [JsonIgnore]
         public virtual List<UserRoles> UserRoles { get; set; } = [];
         [JsonIgnore]
