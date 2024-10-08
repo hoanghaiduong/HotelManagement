@@ -11,11 +11,7 @@ namespace HotelManagement.Data.configs
     {
         public void Configure(EntityTypeBuilder<Booking> builder)
         {
-            // builder
-            // .HasOne(b => b.User)
-            // .WithMany(u => u.Bookings)
-            // .HasForeignKey(b => b.UserId)
-            // .OnDelete(DeleteBehavior.NoAction); // Disable cascade delete for this relationship
+      
         }
     }
 }
